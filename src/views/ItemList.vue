@@ -2,7 +2,7 @@
 	<div class="wrapper">
 		<clip-loader :loading="initLoading" :class="'spinner'"></clip-loader>
 		<transition>
-			<ul class="gallery" v-if="!initLoading">
+			<ul class="gallery" v-if="!initLoading" v-masonry transition-duration="0.3s" item-selector=".gallery__item">
 				<item class="gallery__item" v-for="item in items"  :item="item" :key="item.id"></item>
 			</ul>
 		</transition>
@@ -61,16 +61,17 @@ export default {
 
 <style lang="scss">
 .gallery {
-	display: flex;
-	flex-wrap: wrap;
+	// display: flex;
+	// flex-wrap: wrap;
   // justify-content: space-between;
   padding-left: 0px;
   
   &__item {
     list-style: none;
-    width: 25%;
-    height: 300px ;
-    position: relative;
+		width:288px;
+    // max-width: 200px;
+    // height: 300px ;
+    // position: relative;
   }
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
-	<li @click="$eventHub.$emit('showPopup', item)">
+	<li @click="$eventHub.$emit('showPopup', item)"  v-masonry-tile>
 		<a class="itemContent">
 			<img class="itemContent__img" :src="item.url_n || item.url_m || item.url_z || item.url_o" @load="loading = false">
-			<pulse-loader :loading="loading" :class="'spinner'"></pulse-loader>
-			<p class="itemContent__title">
+			<!-- <pulse-loader :loading="loading" :class="'spinner'"></pulse-loader> -->
+			<!-- <p class="itemContent__title">
 				<span class="itemContent__title-inner">{{ title(item.title) }} </span>
-			</p>
+			</p> -->
 		</a>
 	</li>
 </template>
@@ -35,45 +35,41 @@ export default {
 </script>
 
 <style lang="scss">
+
 .itemContent {
-	display: block;
-	cursor: pointer;
-	width: 100%;
-	height: 100%;
-  z-index: 999;
-  
-  &:hover{
+  display: block;
+  height: 100%;
+  cursor: pointer;
+
+  &:hover {
     opacity: 0.8;
   }
-  &__img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
+  &__img { 
+    width: 280px;
   }
-  &__title {
-    z-index: 999;
-    position: absolute;
-    bottom: 0px;
-    text-align:center;
-    background-color: rgba(0,0,0,0.7);
-    width: 100%;
-    color: #fff;
-    margin: 0px;
-    padding: 5px 10px;
-    height: 50px;
-    width: 100%;
-    word-wrap: break-word;
-    overflow: hidden;
+  // &__title {
+  //   z-index: 999;
+  //   position: absolute;
+  //   bottom: 0px;
+  //   text-align:center;
+  //   background-color: rgba(0,0,0,0.7);
+  //   width: 100%;
+  //   color: #fff;
+  //   margin: 0px;
+  //   padding: 5px 10px;
+  //   height: 50px;
+  //   width: 100%;
+  //   word-wrap: break-word;
+  //   overflow: hidden;
 
-    &-inner {
-      display: block;
-      width: 100%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-    }    
-  }
+  //   &-inner {
+  //     display: block;
+  //     width: 100%;
+  //     position: absolute;
+  //     top: 50%;
+  //     left: 50%;
+  //     transform: translate(-50%,-50%);
+  //   }    
+  // }
 }
 </style>
