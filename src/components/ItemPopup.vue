@@ -3,7 +3,8 @@
 		<div class="popup__panel" @click.stop>
 			<div class="photo">
 				<figure class="photo__fig">
-					<img class="photo__fig-img" :src="item.url_n || item.url_m || item.url_z || item.url_o">
+					<img class="photo__fig-img" :src="item.url_m || item.url_z || item.url_o" @load="loading = false">
+					<pulse-loader :loading="loading" :class="'spinner'"></pulse-loader>
 				</figure>
 				<dl>
 					<dt>タイトル</dt>
@@ -22,8 +23,18 @@
 </template>
 
 <script>
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+
 export default {
+	components: {
+		PulseLoader
+	},
 	props: ['item'],
+	data () {
+		return {
+			loading: true
+		}
+	},
 	methods: {
 		closePopup () {
 			this.$eventHub.$emit('closePopup')
@@ -58,7 +69,7 @@ export default {
   z-index: 9999;
   
   &__panel {
-    width: 500px;
+    width: 700px;
     height: 90%;
     margin: 0 auto;
     text-align: center;
@@ -71,6 +82,9 @@ export default {
 }
 .photo {
   &__fig {
+		margin: 0px;
+		min-height: 300px;
+		position: relative;
     &-img {
       max-width: 100%;
       border: 1px solid #ccc;
