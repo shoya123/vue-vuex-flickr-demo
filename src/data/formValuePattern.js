@@ -17,6 +17,7 @@ export default {
 			value: 'date-taken-asc'
 		}
 	],
+	// APIから正しい個数が返ってこないので、曖昧な表現を使用
 	perPage: [
 		{
 			text: '少し',
