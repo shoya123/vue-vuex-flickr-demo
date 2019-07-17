@@ -35,7 +35,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .itemContent {
   display: block;
   height: 100%;
