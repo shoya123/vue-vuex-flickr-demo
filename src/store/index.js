@@ -9,7 +9,7 @@ export const state = {
 	responseData: {},
 	items: [],
 	searchParams: {
-		text: '桜',
+		text: '鳩',
 		sort: 'date-posted-desc',
 		per_page: 20,
 		page: 1
